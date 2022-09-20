@@ -39,8 +39,8 @@ dependencies:
   provider: ^6.0.3
   shared_preferences: ^2.0.15
   carousel_slider: ^4.1.1
-  curved_navigation_bar: ^1.0.3
   custom_navigation_bar: ^0.8.2
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

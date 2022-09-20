@@ -1,9 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qualification_flutter/helper/theme.dart';
+import 'package:qualification_flutter/pages/login_page.dart';
 
 class HomePage extends StatefulWidget {
   String username;
@@ -13,13 +12,6 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
-
-const TextStyle _textStyle = TextStyle(
-  fontSize: 40,
-  fontWeight: FontWeight.bold,
-  letterSpacing: 2,
-  fontStyle: FontStyle.italic,
-);
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
@@ -39,21 +31,6 @@ class _HomePageState extends State<HomePage> {
       builder: (context, themeProvider, child) {
         return Scaffold(
           backgroundColor: themeProvider.backgroundColor(),
-          appBar: AppBar(
-            title: themeProvider.handleImage(),
-            actions: [
-              IconButton(
-                onPressed: () {
-                  Provider.of<ThemeProvider>(context, listen: false)
-                      .swapTheme();
-                },
-                icon: const Icon(Icons.brightness_6),
-              ),
-            ],
-            elevation: 4.0,
-            shadowColor: themeProvider.iconColor(),
-            bottomOpacity: 2.0,
-          ),
           body: SingleChildScrollView(
             padding: const EdgeInsets.all(20.0),
             child: Wrap(
@@ -99,6 +76,8 @@ class _HomePageState extends State<HomePage> {
                   }).toList(),
                 ),
                 Wrap(
+                  runSpacing: 10.0,
+                  spacing: 10.0,
                   children: [
                     Align(
                       alignment: Alignment.centerLeft,
@@ -108,6 +87,7 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 20,
                           color: themeProvider.iconColor(),
                           fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic,
                         ),
                       ),
                     ),
@@ -118,6 +98,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                           fontSize: 16,
                           color: themeProvider.iconColor(),
+                          height: 1.5,
                         ),
                         textAlign: TextAlign.justify,
                       ),
@@ -126,55 +107,6 @@ class _HomePageState extends State<HomePage> {
                 )
               ],
             ),
-          ),
-          bottomNavigationBar: NavigationBar(
-            height: 60.0,
-            labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-            backgroundColor: themeProvider.backgroundColor(),
-            selectedIndex: _currentIndex,
-            onDestinationSelected: (int newIndex) {
-              setState(() {
-                _currentIndex = newIndex;
-              });
-            },
-            destinations: [
-              NavigationDestination(
-                selectedIcon: Icon(
-                  Icons.home,
-                  color: themeProvider.iconColor(),
-                ),
-                icon: Icon(
-                  Icons.home_outlined,
-                  color: themeProvider.iconColor(),
-                ),
-                label: '',
-                tooltip: 'Home',
-              ),
-              NavigationDestination(
-                selectedIcon: Icon(
-                  Icons.shop_2,
-                  color: themeProvider.iconColor(),
-                ),
-                icon: Icon(
-                  Icons.shop_2_outlined,
-                  color: themeProvider.iconColor(),
-                ),
-                label: '',
-                tooltip: 'Shop',
-              ),
-              NavigationDestination(
-                selectedIcon: Icon(
-                  Icons.logout,
-                  color: themeProvider.iconColor(),
-                ),
-                icon: Icon(
-                  Icons.logout_outlined,
-                  color: themeProvider.iconColor(),
-                ),
-                label: '',
-                tooltip: 'Log Out',
-              ),
-            ],
           ),
         );
       },

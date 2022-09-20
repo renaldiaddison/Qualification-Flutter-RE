@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 const Map<int, Color> colorBlack = {
-  50: Color.fromRGBO(255, 0, 0, 0),
-  100: Color.fromRGBO(255, 0, 0, 0),
-  200: Color.fromRGBO(255, 0, 0, 0),
-  300: Color.fromRGBO(255, 0, 0, 0),
-  400: Color.fromRGBO(255, 0, 0, 0),
-  500: Color.fromRGBO(255, 0, 0, 0),
-  600: Color.fromRGBO(255, 0, 0, 0),
-  700: Color.fromRGBO(255, 0, 0, 0),
-  800: Color.fromRGBO(255, 0, 0, 0),
-  900: Color.fromRGBO(255, 0, 0, 0),
+  50: Color.fromARGB(0, 0, 0, 0),
+  100: Color.fromARGB(0, 0, 0, 0),
+  200: Color.fromARGB(0, 0, 0, 0),
+  300: Color.fromARGB(0, 0, 0, 0),
+  400: Color.fromARGB(0, 0, 0, 0),
+  500: Color.fromARGB(0, 0, 0, 0),
+  600: Color.fromARGB(0, 0, 0, 0),
+  700: Color.fromARGB(0, 0, 0, 0),
+  800: Color.fromARGB(0, 0, 0, 0),
+  900: Color.fromARGB(0, 0, 0, 0),
 };
 
 const Map<int, Color> colorWhite = {

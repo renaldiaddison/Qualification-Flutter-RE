@@ -56,12 +56,10 @@ class _InputState extends State<Input> {
 
   String? handleErrorText() {
     if (widget.isError) {
-      if (widget.label == "email") {
-        return "Email is not in the correct format";
-      } else if (widget.label == "username") {
+      if (widget.label == "username") {
         return "Username must be more than 5 characters";
       } else if (widget.label == "password") {
-        return "Password must be alphanumeric";
+        return "Password must be alphanumeric and cannot be empty";
       }
     }
     return null;

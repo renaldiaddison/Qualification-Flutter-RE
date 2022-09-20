@@ -6,7 +6,7 @@ import 'package:qualification_flutter/pages/login_page.dart';
 void main(List<String> args) {
   runApp(ChangeNotifierProvider(
     child: const Nike(),
-    create: (context) => ThemeProvider(isDark: true),
+    create: (context) => ThemeProvider(isDark: false),
   ));
 }
 
