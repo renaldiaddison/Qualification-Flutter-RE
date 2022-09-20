@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qualification_flutter/helper/theme.dart';
 
 class Input extends StatefulWidget {
   String label;
@@ -6,6 +7,7 @@ class Input extends StatefulWidget {
   bool textVisible;
   TextEditingController textController;
   bool isError;
+  ThemeProvider themeProvider;
 
   Input(
       {super.key,
@@ -13,7 +15,8 @@ class Input extends StatefulWidget {
       required this.isPassword,
       required this.textVisible,
       required this.textController,
-      required this.isError});
+      required this.isError,
+      required this.themeProvider});
 
   @override
   State<Input> createState() => _InputState();
@@ -22,14 +25,14 @@ class Input extends StatefulWidget {
 class _InputState extends State<Input> {
   Icon icon() {
     if (widget.textVisible) {
-      return const Icon(
+      return Icon(
         Icons.remove_red_eye,
-        color: Colors.black,
+        color: widget.themeProvider.iconColor(),
       );
     }
-    return const Icon(
+    return Icon(
       Icons.remove_red_eye_outlined,
-      color: Colors.black,
+      color: widget.themeProvider.iconColor(),
     );
   }
 
@@ -53,10 +56,13 @@ class _InputState extends State<Input> {
 
   String? handleErrorText() {
     if (widget.isError) {
-      if (widget.isPassword) {
+      if (widget.label == "email") {
+        return "Email is not in the correct format";
+      } else if (widget.label == "username") {
+        return "Username must be more than 5 characters";
+      } else if (widget.label == "password") {
         return "Password must be alphanumeric";
       }
-      return "Username must be more than 5 characters";
     }
     return null;
   }
@@ -66,38 +72,41 @@ class _InputState extends State<Input> {
     return TextField(
       controller: widget.textController,
       obscureText: !widget.textVisible,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 15,
-        color: Colors.black,
+        color: widget.themeProvider.iconColor(),
       ),
-      cursorColor: Colors.black,
+      cursorColor: widget.themeProvider.iconColor(),
       showCursor: true,
       autocorrect: false,
       decoration: InputDecoration(
         hintText: "Please input your ${widget.label}...",
+        hintStyle: TextStyle(
+          color: widget.themeProvider.iconColor(),
+        ),
         focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black),
+          borderSide: BorderSide(color: Colors.grey),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black),
+          borderSide: BorderSide(color: Colors.grey),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         errorBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black),
+          borderSide: BorderSide(color: Colors.grey),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         focusedErrorBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black),
+          borderSide: BorderSide(color: Colors.grey),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         border: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black),
+          borderSide: BorderSide(color: Colors.grey),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         labelText: capitalize(widget.label),
-        labelStyle: const TextStyle(
-          color: Colors.black,
+        labelStyle: TextStyle(
+          color: widget.themeProvider.iconColor(),
         ),
         suffixIcon: Align(
           widthFactor: 1.0,

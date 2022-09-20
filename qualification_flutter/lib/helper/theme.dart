@@ -29,12 +29,10 @@ const Map<int, Color> colorWhite = {
 class ThemeProvider extends ChangeNotifier {
   ThemeData darkTheme = ThemeData(
     primarySwatch: const MaterialColor(0xFF000000, colorBlack),
-    iconTheme: const IconThemeData(color: Colors.black),
   );
 
   ThemeData lightTheme = ThemeData(
     primarySwatch: const MaterialColor(0xFFFFFFFF, colorWhite),
-    iconTheme: const IconThemeData(color: Colors.white),
   );
 
   late ThemeData _selectedTheme;
@@ -49,7 +47,32 @@ class ThemeProvider extends ChangeNotifier {
   }
 
   ThemeData get getTheme => _selectedTheme;
+
   bool isDark() {
     return _selectedTheme == darkTheme ? true : false;
+  }
+
+  Color iconColor() {
+    return _selectedTheme == darkTheme ? Colors.white : Colors.black;
+  }
+
+  Color backgroundColor() {
+    return _selectedTheme == darkTheme ? Colors.black : Colors.white;
+  }
+
+  Image handleImage() {
+    return _selectedTheme == darkTheme
+        ? Image.asset(
+            'assets/logo/white.png',
+            width: 50,
+            height: 60,
+            fit: BoxFit.fill,
+          )
+        : Image.asset(
+            'assets/logo/black.png',
+            width: 60,
+            height: 60,
+            fit: BoxFit.fill,
+          );
   }
 }
