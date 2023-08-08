@@ -6,6 +6,7 @@ class Item {
   String img;
   String desc;
   List<Comment> comments = [];
+  
 
   Item({
     required this.name,

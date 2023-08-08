@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qualification_flutter/helper/theme.dart';
-import 'package:qualification_flutter/pages/home_page.dart';
 import 'package:qualification_flutter/pages/main_page.dart';
 import 'package:qualification_flutter/widgets/text_input.dart';
 

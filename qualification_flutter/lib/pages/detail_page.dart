@@ -7,10 +7,10 @@ import 'package:qualification_flutter/pages/login_page.dart';
 import 'package:qualification_flutter/pages/shop_page.dart';
 
 class DetailPage extends StatefulWidget {
-  Item item;
-  String username;
+  final Item item;
+  final String username;
 
-  DetailPage({super.key, required this.item, required this.username});
+  const DetailPage({super.key, required this.item, required this.username});
 
   @override
   State<DetailPage> createState() => _DetailPageState();

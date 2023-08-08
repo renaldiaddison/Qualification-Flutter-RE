@@ -10,14 +10,9 @@ void main(List<String> args) {
   ));
 }
 
-class Nike extends StatefulWidget {
+class Nike extends StatelessWidget {
   const Nike({super.key});
 
-  @override
-  State<Nike> createState() => _NikeState();
-}
-
-class _NikeState extends State<Nike> {
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeProvider>(
